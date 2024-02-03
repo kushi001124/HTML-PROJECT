@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DailyFresh</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header>
+        <h1>DailyFresh</h1>
+        <!-- connect to wallet button  -->
+        <button id="connectButton">Connect to Wallet</button>
+
+        <!-- Search input button -->
+        <input type="text" id="searchInput" placeholder="Search items">
+
+        <!-- category select button -->>
+        <select id="CategorySelect">
+            <option value="All">All Categories</option>
+            <option value="Fruits">Fruits</option>
+            <option value="Vegetables">Vegetables</option>
+            <option value="Dairy">Dairy</option>
+            <!-- # categories included: this includes fruits, vegetables and dairy -->
+        </select>
+
+        <!-- filter button, clicking it will run function - openfiltermodal -->
+        <button onclick="openFilterModal()">Filter</button>
+    </header>
+
+    <div class="container" id="productContainer">
+        <!-- product elements will be dynamically added by javascript through vcreation of array and will be assigned under container div  -->
+    </div>
+
+    <!-- item modal: 3 funtions:  -->
+    <div class="modal" id="itemModal">
+        <div class="modal-content">
+            <h2>Product Details</h2>
+            <img src="" alt="Product Image" id="modalImage">
+            <p id="modalDescription"></p>
+            <p id="modalPrice"></p>
+            <button id="buyButton" onclick="buyItem()">Buy Now</button>
+            <button onclick="goBack()">Back</button>
+        </div>
+    </div>
+
+    <!-- Filter Modal -->
+    <div class="modal" id="filterModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeFilterModal()">&times;</span>
+            <h2>Filter Options</h2>
+            <label for="minPrice">Min Price:</label>
+            <input type="number" id="minPrice" min="0">
+            <label for="maxPrice">Max Price:</label>
+            <input type="number" id="maxPrice" min="0">
+            <button onclick="applyFilters()">Apply Filters</button>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script> 
+</body>
+</html>
